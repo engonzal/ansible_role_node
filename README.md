@@ -1,6 +1,6 @@
-### Ansible Roles: Package
+### Ansible Roles: Node
 
-Module to install a list of packages.  
+Role to install the Node Version Manager and Nodejs
 
 #### Role Variables
 To install node under the ansible users directory (sudo not required):
