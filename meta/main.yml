@@ -1,0 +1,24 @@
+galaxy_info:
+  author: engonzal
+  description: NVM and Node installation for Linux.
+  license: "license BSD"
+  min_ansible_version: 2.4
+  galaxy_tags:
+  - nvm
+  - nodejs
+  - node
+  - base
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+dependencies: []

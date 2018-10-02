@@ -1,0 +1,7 @@
+---
+# defaults file for ansible_role_node
+node_version: v8.12.0
+nvm_version: v0.33.11
+
+nvm_install_user: "{{ ansible_user_id }}"
+nvm_install_dir: "/home/{{ ansible_user_id}}/.nvm"

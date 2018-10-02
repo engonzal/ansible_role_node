@@ -1,0 +1,26 @@
+---
+# tasks file for ansible_role_node
+- name: Clone NVM {{ nvm_version }} repo
+  git:
+    repo: https://github.com/creationix/nvm.git
+    dest: "{{ nvm_install_dir }}"
+    version: "{{ nvm_version }}"
+    update: no
+    accept_hostkey: yes
+  remote_user: "{{ nvm_install_user }}"
+
+- name: Add NVM config to bashrc
+  blockinfile:
+    path: /home/{{ nvm_install_user }}/.bashrc
+    block: |
+      # NVM Configs
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  remote_user: "{{ nvm_install_user }}"
+
+- name: Install nodejs version {{ node_version }} with nvm
+  shell: "/bin/bash -c \"source ~/.nvm/nvm.sh && nvm install {{ node_version }}\""
+  remote_user: "{{ nvm_install_user }}"
+  register: nvm_nodeinstall_status
+  changed_when: nvm_nodeinstall_status.stdout.find('Downloading') != -1
+  when: node_version is defined
