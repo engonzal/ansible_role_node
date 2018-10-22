@@ -29,3 +29,7 @@ nvm_install_user: "{{ ansible_user_id }}"
 #### License
 
 BSD
+
+#### Author
+
+Noe Gonzalez - http://engonzal.com

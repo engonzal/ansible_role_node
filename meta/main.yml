@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: node
   author: engonzal
   description: NVM and Node installation for Linux.
   license: "license BSD"
