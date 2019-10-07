@@ -1,5 +1,17 @@
 ---
 # tasks file for ansible_role_node
+- name: Install nvm dependencies (apt)
+  package:
+    name: "{{ nvm_deps_apt }}"
+    state: present
+  when: ansible_pkg_mgr == "apt"
+
+- name: Install nvm dependencies (yum)
+  package:
+    name: "{{ nvm_deps_yum }}"
+    state: present
+  when: ansible_pkg_mgr == "yum"
+
 - name: Clone NVM {{ nvm_version }} repo
   git:
     repo: https://github.com/creationix/nvm.git

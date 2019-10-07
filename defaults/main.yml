@@ -1,5 +1,18 @@
 ---
 # defaults file for ansible_role_node
+nvm_deps_yum:
+  - gcc
+  - g++
+  - make
+  - curl
+  - git
+
+nvm_deps_apt:
+  - build-essential
+  - libssl-dev
+  - curl
+  - git
+
 node_version: v8.12.0
 nvm_version: v0.33.11
 
